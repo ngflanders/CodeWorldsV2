@@ -17,64 +17,64 @@ import java.util.LinkedList;
  *  logic.
  */
 public abstract class HerdAnimal extends Animal {
-   private static ArrayList all = new ArrayList();
-   
-   private HerdAnimal myLeader = null;
-   
-   public HerdAnimal(Vector loc, Vector vlc) {
-      super(loc, vlc);
-      all.add(this);
-   }
-   
-   abstract boolean isGoodLeader(HerdAnimal possibleLeader);
-   
-   @Override
-   public void step() {
-      HerdAnimal leader;
-      Vector oldLoc = loc;
-      
-      if (myLeader == null) {  // If leaderless
-         super.step();                     // plod on per usual Animal behavior
-         leadFollowers(loc.minus(oldLoc)); // and lead your followers
- 
-         // Seek a leader
-         for (Iterator itr = all.iterator(); itr.hasNext();) {
-            leader = (HerdAnimal)itr.next();
-            leader = leader.myLeader != null ? leader.myLeader : leader;
-            
-            if (leader != this && isGoodLeader(leader)) {
-               System.out.printf("%s follows %s\n", this.toString(), leader.toString());
-               myLeader = leader;
-               myLeader.addFollower(new Follower());
-               handOffFollowers(myLeader);
-               break;
+    private static ArrayList all = new ArrayList();
+
+    private HerdAnimal myLeader = null;
+
+    public HerdAnimal(Vector loc, Vector vlc) {
+        super(loc, vlc);
+        all.add(this);
+    }
+
+    abstract boolean isGoodLeader(HerdAnimal possibleLeader);
+
+    @Override
+    public void step() {
+        HerdAnimal leader;
+        Vector oldLoc = loc;
+
+        if (myLeader == null) {  // If leaderless
+            super.step();                     // plod on per usual Animal behavior
+            leadFollowers(loc.minus(oldLoc)); // and lead your followers
+
+            // Seek a leader
+            for (Iterator itr = all.iterator(); itr.hasNext();) {
+                leader = (HerdAnimal)itr.next();
+                leader = leader.myLeader != null ? leader.myLeader : leader;
+
+                if (leader != this && isGoodLeader(leader)) {
+                    System.out.printf("%s follows %s\n", this.toString(), leader.toString());
+                    myLeader = leader;
+                    myLeader.addFollower(new Follower());
+                    handOffFollowers(myLeader);
+                    break;
+                }
             }
-         }
-      }
-   }
+        }
+    }
 
-   // Follower code ----------------------------------
-   
-   public class Follower {
-      public void leaderStep(Vector step)      {loc.plusBy(step);}
-      public void changeLeader(HerdAnimal ldr) {
-         myLeader = ldr;
-         myLeader.addFollower(this);
-      }
-   }
+    // Follower code ----------------------------------
 
-   private LinkedList<Follower> myFollowers = new LinkedList<Follower>();
+    public class Follower {
+        public void leaderStep(Vector step)      {loc.plusBy(step);}
+        public void changeLeader(HerdAnimal ldr) {
+            myLeader = ldr;
+            myLeader.addFollower(this);
+        }
+    }
 
-   public void addFollower(Follower follower) {myFollowers.add(follower);}
-   
-   public void leadFollowers(Vector incr) {
-      for (Iterator<Follower> itr = myFollowers.iterator(); itr.hasNext();)
-         itr.next().leaderStep(incr);
-   }
-   
-   public void handOffFollowers(HerdAnimal newLeader) {
-      for (Follower flw: myFollowers)
-         flw.changeLeader(newLeader);
-      myFollowers.clear();
-   }
+    private LinkedList<Follower> myFollowers = new LinkedList<Follower>();
+
+    public void addFollower(Follower follower) {myFollowers.add(follower);}
+
+    public void leadFollowers(Vector incr) {
+        for (Iterator<Follower> itr = myFollowers.iterator(); itr.hasNext();)
+            itr.next().leaderStep(incr);
+    }
+
+    public void handOffFollowers(HerdAnimal newLeader) {
+        for (Follower flw: myFollowers)
+            flw.changeLeader(newLeader);
+        myFollowers.clear();
+    }
 }

@@ -16,15 +16,16 @@ import java.util.List;
  * from the display.
  */
 public class DumpDisplay implements Display {
-   private List<Displayable> dsps = new LinkedList<Displayable>();
-  
-   @Override
-   public void addDisplayable(Displayable dsp) {dsps.add(dsp);}
-   
-   @Override
-   public void redraw(int time) {
-      System.out.printf("\nAt time %d:\n", time);
-      for (Displayable dsp: dsps)
-         System.out.println(dsp.getLoc());
-   }
+    private List<Displayable> dsps = new LinkedList<Displayable>();
+
+    @Override
+    public void addDisplayable(Displayable dsp) {dsps.add(dsp);}
+
+    @Override
+    public void redraw(int time) {
+        System.out.printf("\nAt time %d:\n", time);
+        for (Displayable dsp: dsps)
+            System.out.println(dsp.getLoc());
+    }
+
 }
