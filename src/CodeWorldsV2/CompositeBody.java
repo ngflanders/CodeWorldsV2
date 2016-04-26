@@ -10,8 +10,14 @@ public abstract class CompositeBody implements Body, Displayable {
 
     }
 
+    Body RefHolder;
+
     @Override
     public Rectangle getBounds() {
+        /**
+         * Refer to Tom's email on 4/24/2016
+         */
+
         return null;
     }
 
