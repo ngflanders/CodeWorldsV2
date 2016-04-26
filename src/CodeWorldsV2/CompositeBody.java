@@ -5,6 +5,9 @@ import java.util.Iterator;
 
 public class CompositeBody implements Body, Displayable {
 
+    public CompositeBody() {
+    }
+
     // Copy constructor
     public CompositeBody(CompositeBody other) {
 
