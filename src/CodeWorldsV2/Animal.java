@@ -1,5 +1,4 @@
 package CodeWorldsV2;
-
 /* An Animal moves in a straight line within |range|, at a constant velocity.
  * If this would take it out of range, it instead stays in place and turns 90
  * degrees to the right.
