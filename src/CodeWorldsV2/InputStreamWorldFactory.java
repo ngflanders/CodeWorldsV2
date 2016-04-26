@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+
 public class InputStreamWorldFactory implements WorldFactory {
 
     public InputStreamWorldFactory(InputStream inputStream) {

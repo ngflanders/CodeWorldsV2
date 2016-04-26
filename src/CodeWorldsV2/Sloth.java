@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.Iterator;
 
+
 public class Sloth extends Animal {
     private static int imgSize;
     private static BufferedImage img;
