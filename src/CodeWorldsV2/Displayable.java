@@ -1,8 +1,5 @@
 package CodeWorldsV2;
-// hello
 
-// Nick test
-// Hi There
 import java.awt.Image;
 
 // Anything that can be displayed must have a location and a current velocity.
