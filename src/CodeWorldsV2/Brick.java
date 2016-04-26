@@ -39,4 +39,20 @@ public abstract class Brick implements Body, Displayable {
     abstract public Vector getLoc();
     @Override
     public Vector getVlc() {return new Vector();}
+
+    @Override
+    public Iterator<Brick> iterator() {
+        // first return true, then return false
+        return new Iterator<Brick>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+            // first return the object then return null
+            @Override
+            public Brick next() {
+                return null;
+            }
+        };
+    }
 }

@@ -14,9 +14,6 @@ public class InputStreamWorldFactory implements WorldFactory {
     public InputStreamWorldFactory(InputStream inputStream) {
         readInputStream(inputStream);
 
-
-
-
     }
 
     @Override

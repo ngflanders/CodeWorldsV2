@@ -1,8 +1,14 @@
 package CodeWorldsV2;
 
+import java.awt.*;
 import java.util.Iterator;
 
-public class CompositeBody implements Body {
+public abstract class CompositeBody implements Body, Displayable {
+
+    // Copy constructor
+    public CompositeBody(CompositeBody other) {
+
+    }
 
     @Override
     public Rectangle getBounds() {
@@ -11,7 +17,8 @@ public class CompositeBody implements Body {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return null; // maybe this should be in the child class???
+        //    return new CompositeBody(this); // needs offset still!
     }
 
     @Override
@@ -27,5 +34,20 @@ public class CompositeBody implements Body {
                 return null;
             }
         };
+    }
+
+    @Override
+    public Vector getLoc() {
+        return null;
+    }
+
+    @Override
+    public Vector getVlc() {
+        return null;
+    }
+
+    @Override
+    public Image getImage(int size) {
+        return null;
     }
 }
