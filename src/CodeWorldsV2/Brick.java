@@ -39,4 +39,15 @@ public abstract class Brick implements Body, Displayable {
     abstract public Vector getLoc();
     @Override
     public Vector getVlc() {return new Vector();}
+
+    @Override
+    public Rectangle getBounds() {
+
+        /**
+         * Questions:
+         * 1.  Is this allowed?
+         * 2.  What should the top and left value be?
+         */
+        return new Rectangle(1,1,1,1);
+    }
 }
