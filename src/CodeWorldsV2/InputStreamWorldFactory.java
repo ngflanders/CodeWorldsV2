@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class InputStreamWorldFactory implements WorldFactory {
 
-   // ArrayList<Body> bodies;
+     ArrayList<Body> bodies;
 
     public InputStreamWorldFactory(InputStream inputStream) {
         readInputStream(inputStream);

@@ -3,7 +3,7 @@ package CodeWorldsV2;
 import java.awt.*;
 import java.util.Iterator;
 
-public abstract class CompositeBody implements Body, Displayable {
+public class CompositeBody implements Body, Displayable {
 
     // Copy constructor
     public CompositeBody(CompositeBody other) {
