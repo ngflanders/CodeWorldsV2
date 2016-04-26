@@ -4,6 +4,8 @@ import java.util.Iterator;
 
 public class CompositeBody implements Body {
 
+    Body RefHolder;
+
     @Override
     public Rectangle getBounds() {
         return null;
