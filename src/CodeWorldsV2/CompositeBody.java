@@ -5,14 +5,13 @@ import java.util.Iterator;
 
 public class CompositeBody implements Body, Displayable {
 
-
+    public CompositeBody() {
+    }
 
     // Copy constructor
     public CompositeBody(CompositeBody other) {
 
     }
-
-    Body RefHolder;
 
     @Override
     public Rectangle getBounds() {

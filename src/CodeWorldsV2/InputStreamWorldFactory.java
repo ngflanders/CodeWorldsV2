@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class InputStreamWorldFactory implements WorldFactory {
 
-     ArrayList<Body> bodies;
+    ArrayList<Body> bodies;
 
     public InputStreamWorldFactory(InputStream inputStream) {
         readInputStream(inputStream);
@@ -18,7 +18,7 @@ public class InputStreamWorldFactory implements WorldFactory {
 
     @Override
     public WorldFactory build() throws CWSException {
-       // bodies = new ArrayList<>();
+        bodies = new ArrayList<>();
         return null;
     }
 
@@ -27,16 +27,28 @@ public class InputStreamWorldFactory implements WorldFactory {
         return null;
     }
 
-
-
     private void readInputStream(InputStream inputStream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder out = new StringBuilder();
         String line;
-
+        String[] lineitems;
         try {
 
             while ((line = reader.readLine()) != null) {
+
+                lineitems = line.split(" ");
+                switch (lineitems[0]) {
+                    case "Cow":
+                        bodies.add(new Cow(new Vector(Integer.parseInt(lineitems[1]), Integer.parseInt(lineitems[2]))));
+                        break;
+                    case "Tree":
+                        bodies.add(new Tree(new Vector(Integer.parseInt(lineitems[1]), Integer.parseInt(lineitems[2]))));
+                        break;
+                    case "Horse":
+                        bodies.add(new Horse(new Vector(Integer.parseInt(lineitems[1]), Integer.parseInt(lineitems[2]))));
+                        break;
+                }
+
                 out.append(line).append("\n");
             }
 
