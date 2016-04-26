@@ -60,11 +60,6 @@ public abstract class Brick implements Body, Displayable {
     @Override
     public Rectangle getBounds() {
 
-        /**
-         * Questions:
-         * 1.  Is this allowed?
-         * 2.  What should the top and left value be?
-         */
-        return new Rectangle(1,1,1,1);
+        return null;
     }
 }
