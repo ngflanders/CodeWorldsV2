@@ -8,23 +8,9 @@ import java.io.InputStreamReader;
 public class InputStreamWorldFactory implements WorldFactory {
 
     public InputStreamWorldFactory(InputStream inputStream) {
+        readInputStream(inputStream);
 
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder out = new StringBuilder();
-        String line;
-
-        try {
-
-            while ((line = reader.readLine()) != null) {
-                out.append(line);
-            }
-            System.out.println(out.toString());   //Prints the string content read from input stream
-            reader.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -38,4 +24,23 @@ public class InputStreamWorldFactory implements WorldFactory {
     public WorldFactory build() throws CWSException {
         return null;
     }
+
+    private void readInputStream(InputStream inputStream) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuilder out = new StringBuilder();
+        String line;
+
+        try {
+
+            while ((line = reader.readLine()) != null) {
+                out.append(line).append("\n");
+            }
+            System.out.println(out.toString());   //Prints the string content read from input stream
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

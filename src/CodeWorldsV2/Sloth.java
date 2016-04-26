@@ -17,7 +17,7 @@ public class Sloth extends Animal {
 
     @Override
     public void step() {
-        step();
+        super.step();   // changed from just "step()"
 
         vlc.scaleBy(.5);  // Sloths just move more and more slowly
     }
