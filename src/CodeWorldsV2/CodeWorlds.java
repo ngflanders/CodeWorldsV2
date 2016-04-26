@@ -33,13 +33,9 @@ public class CodeWorlds {
 
             dsp.redraw(0);
         }
-        catch (IOException err) {
+        catch (IOException | CWSException err) {
             Logger.getLogger().log("Error: %s\n", err.getMessage());
-        }
-        catch (CWSException err) {
-            Logger.getLogger().log("Error: %s\n", err.getMessage());
-        }
-        finally {
+        } finally {
             in.close();
         }
     }

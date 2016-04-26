@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class InputStreamWorldFactory implements WorldFactory {
 
-     ArrayList<Body> bodies;
+    ArrayList<Body> bodies;
 
     public InputStreamWorldFactory(InputStream inputStream) {
         readInputStream(inputStream);
@@ -18,7 +18,7 @@ public class InputStreamWorldFactory implements WorldFactory {
 
     @Override
     public WorldFactory build() throws CWSException {
-       // bodies = new ArrayList<>();
+        bodies = new ArrayList<>();
         return null;
     }
 
@@ -26,8 +26,6 @@ public class InputStreamWorldFactory implements WorldFactory {
     public Body getWorld() {
         return null;
     }
-
-
 
     private void readInputStream(InputStream inputStream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

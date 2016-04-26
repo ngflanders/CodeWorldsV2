@@ -56,7 +56,6 @@ public abstract class Brick implements Body, Displayable {
         };
     }
 
-
     @Override
     public Rectangle getBounds() {
 

@@ -71,5 +71,4 @@ public class Rectangle {
         return String.format("%d %d %d %d", left, top, width, height);
     }
 
-
 }
