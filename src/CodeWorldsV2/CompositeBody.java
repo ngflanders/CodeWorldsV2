@@ -16,6 +16,16 @@ public class CompositeBody implements Body {
 
     @Override
     public Iterator<Brick> iterator() {
-        return null;
+        return new Iterator<Brick>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Brick next() {
+                return null;
+            }
+        };
     }
 }
