@@ -19,8 +19,8 @@ public class CodeWorlds {
                 throw new CWSException("Usage: CodeWorlds (D|G) [entityFile]");
 
             fact = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in);
-            fact.build();
-            world = fact.getWorld();
+            //fact.build();
+            world = fact.build().getWorld();
 
             bounds = world.getBounds();
             System.out.printf("Bounds %s\n", bounds);
