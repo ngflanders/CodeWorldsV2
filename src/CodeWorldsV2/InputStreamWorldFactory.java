@@ -19,7 +19,7 @@ public class InputStreamWorldFactory implements WorldFactory {
     @Override
     public WorldFactory build() throws CWSException {
         bodies = new ArrayList<>();
-        return null;
+        return this;
     }
 
     @Override
