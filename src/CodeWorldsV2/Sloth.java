@@ -42,17 +42,7 @@ public class Sloth extends Animal {
 
     /////////////////////////////////////////////
     @Override
-    public Rectangle getBounds() {
-        return null;
-    }
-
-    @Override
     public Body clone(Vector offset) {
-        return null;
-    }
-
-    @Override
-    public Iterator<Brick> iterator() {
         return null;
     }
     ///////////////////////////////////////////

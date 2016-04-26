@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 public class CompositeBody implements Body, Displayable {
 
+
+
     // Copy constructor
     public CompositeBody(CompositeBody other) {
 
@@ -23,8 +25,7 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Body clone(Vector offset) {
-        return null; // maybe this should be in the child class???
-        //    return new CompositeBody(this); // needs offset still!
+        return new CompositeBody(this); // needs offset still!
     }
 
     @Override

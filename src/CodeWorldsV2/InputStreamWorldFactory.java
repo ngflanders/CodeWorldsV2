@@ -39,6 +39,7 @@ public class InputStreamWorldFactory implements WorldFactory {
             while ((line = reader.readLine()) != null) {
                 out.append(line).append("\n");
             }
+
             System.out.println(out.toString());   //Prints the string content read from input stream
             reader.close();
 

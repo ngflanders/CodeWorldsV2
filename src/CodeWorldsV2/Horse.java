@@ -41,17 +41,7 @@ public class Horse extends HerdAnimal {
 
     ///////////////////////////////////////
     @Override
-    public Rectangle getBounds() {
-        return null;
-    }
-
-    @Override
     public Body clone(Vector offset) {
-        return null;
-    }
-
-    @Override
-    public Iterator<Brick> iterator() {
         return null;
     }
     ////////////////////////////////////////

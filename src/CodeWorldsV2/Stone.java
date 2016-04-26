@@ -27,20 +27,8 @@ public class Stone extends Brick {
         return img;
     }
 
-    /////////////////////////////
-    @Override
-    public Rectangle getBounds() {
-        return null;
-    }
-
     @Override
     public Body clone(Vector offset) {
         return null;
     }
-
-    @Override
-    public Iterator<Brick> iterator() {
-        return null;
-    }
-    ///////////////////////////////
 }
