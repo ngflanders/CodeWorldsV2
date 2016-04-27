@@ -70,6 +70,12 @@ public abstract class Brick implements Body, Displayable {
         if (this instanceof Cow) {
             return new Cow(offset);
         }
+        if (this instanceof Tree) {
+            return new Tree(offset);
+        }
+        if (this instanceof Horse) {
+            return new Horse(offset);
+        }
         return null;
     }
 }
