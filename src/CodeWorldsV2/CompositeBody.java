@@ -1,9 +1,12 @@
 package CodeWorldsV2;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CompositeBody implements Body, Displayable {
+
+    public static ArrayList<Body> CollectBody;
 
     public CompositeBody() {
     }
