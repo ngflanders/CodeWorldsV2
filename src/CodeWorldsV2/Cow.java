@@ -76,9 +76,9 @@ public class Cow extends HerdAnimal {
     }
 
     ////////////////////////////////////////////////
-    @Override
-    public Body clone(Vector offset) {
-        return new Cow(getLoc());
-    }
-    /////////////////////////////////////////////////
+//    @Override
+//    public Body clone(Vector offset) {
+//        return new Cow(getLoc());
+//    }
+//    /////////////////////////////////////////////////
 }
