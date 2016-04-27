@@ -24,6 +24,14 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Rectangle getBounds() {
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        /**
+         *  Implement UnionBy
+         *  HERE
+         *
+         */
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
         int leftMax=0, rightMax=0, topMax=0, bottomMax=0, temp;
         Rectangle r;
         for (Body b : children) {
@@ -38,11 +46,6 @@ public class CompositeBody implements Body, Displayable {
                 bottomMax = temp;
         }
         return new Rectangle(leftMax, topMax, rightMax-leftMax, bottomMax-topMax);
-
-        /**
-         * Refer to Tom's email on 4/24/2016
-         */
-
     }
 
     @Override
@@ -56,7 +59,7 @@ public class CompositeBody implements Body, Displayable {
             int i = -1;
             @Override
             public boolean hasNext() {
-                return i<children.size()-1;
+                return i < children.size()-1;
             }
 
             @Override

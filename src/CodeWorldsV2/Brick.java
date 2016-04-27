@@ -10,7 +10,6 @@ import java.util.Iterator;
 public abstract class Brick implements Body, Displayable {
 
 
-
     // Create an image of color |bg|, with |fg| dots at random location, with
     // one |fg| dot out of every |skip| dots.
     static public Image makeStippleImage(int size, Color bg, Color fg,
@@ -51,6 +50,9 @@ public abstract class Brick implements Body, Displayable {
             }
             // first return the object then return null
             @Override
+            ////////////////////////////////////////////////////////////////////////
+            // Implement this
+            ////////////////////////////////////////////////////////////////////////
             public Brick next() {
                 return null;
             }
@@ -67,7 +69,6 @@ public abstract class Brick implements Body, Displayable {
         // not sure if clone should be implemented in Brick or in the child classes such as Cow
         if (this instanceof Cow) {
             return new Cow(offset);
-
         }
         return null;
     }
