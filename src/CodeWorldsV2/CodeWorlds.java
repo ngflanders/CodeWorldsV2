@@ -16,17 +16,21 @@ public class CodeWorlds {
 
         try {
             if (args.length < 1 || args.length > 2
-                    || !args[0].equals("D") && !args[0].equals("G"))
-                throw new CWSException("Usage: CodeWorlds (D|G) [entityFile]");
+                    || !args[0].equals("D") && !args[0].equals("G") && !args[0].equals("A"))
+                throw new CWSException("Usage: CodeWorlds (A|D|G) [entityFile]");
 
-            fact = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in);
-            //fact.build();
+            if (args[0].equals("A")) {
+                fact = new AutoWorldFactory();
+            } else {
+                fact = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in);
+            }
+
             world = fact.build().getWorld();
 
             bounds = world.getBounds();
             System.out.printf("Bounds %s\n", bounds);
 
-            dsp = args[0].equals("G") ?
+            dsp = (args[0].equals("G") || args[0].equals("A")) ?
                     new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
 
             for (Brick brk: world)
