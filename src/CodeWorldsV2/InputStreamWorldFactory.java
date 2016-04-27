@@ -17,12 +17,10 @@ public class InputStreamWorldFactory implements WorldFactory {
         bodies = new ArrayList<>();
         modelTable = new HashMap<>();
         readInputStream(inputStream);
-
     }
 
     @Override
     public WorldFactory build() throws CWSException {
-
         return this;
     }
 
@@ -36,37 +34,46 @@ public class InputStreamWorldFactory implements WorldFactory {
         String line;
         String[] lineItems;
         Body b;
+        int x, y;
         try {
             while ((line = reader.readLine()) != null) {
                 lineItems = line.split(" ");
+                x = Integer.parseInt(lineItems[1]);
+                y =  Integer.parseInt(lineItems[2]);
                 switch (lineItems[0]) {
                     case "Cow":
                         if (!modelTable.containsKey("Cow")) {
-                            bodies.add(b = (new Cow(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2])))));
+                            bodies.add(b = (new Cow(new Vector(x, y))));
                             modelTable.put("Cow", b);
                         } else {
-                            bodies.add(modelTable.get("Cow").
-                                    clone(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2]))));
+                            bodies.add(modelTable.get("Cow").clone(new Vector(x, y)));
                         }
                         break;
                     case "Tree":
                         if (!modelTable.containsKey("Tree")) {
-                            bodies.add(b = (new Tree(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2])))));
+                            bodies.add(b = (new Tree(new Vector(x, y))));
                             modelTable.put("Tree", b);
                         } else {
-                            bodies.add(modelTable.get("Tree").
-                                    clone(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2]))));
+                            bodies.add(modelTable.get("Tree").clone(new Vector(x, y)));
                         }
                         break;
                     case "Horse":
                         if (!modelTable.containsKey("Horse")) {
-                            bodies.add(b = (new Horse(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2])))));
+                            bodies.add(b = (new Horse(new Vector(x, y))));
                             modelTable.put("Horse", b);
                         } else {
-                            bodies.add(modelTable.get("Horse").
-                                    clone(new Vector(Integer.parseInt(lineItems[1]), Integer.parseInt(lineItems[2]))));
+                            bodies.add(modelTable.get("Horse").clone(new Vector(x, y)));
                         }
                         break;
+                    case "Stone":
+                        if (!modelTable.containsKey("Stone")) {
+                            bodies.add(b = (new Stone(new Vector(x, y))));
+                            modelTable.put("Stone", b);
+                        } else {
+                            bodies.add(modelTable.get("Stone").clone(new Vector(x, y)));
+                        }
+                        break;
+
                 }
             }
             reader.close();
