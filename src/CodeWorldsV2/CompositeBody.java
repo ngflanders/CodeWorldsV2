@@ -48,6 +48,7 @@ public class CompositeBody implements Body, Displayable {
         return new Rectangle(leftMax, topMax, rightMax-leftMax, bottomMax-topMax);
     }
 
+
     @Override
     public Body clone(Vector offset) {
         return new CompositeBody(offset.plus(this.getLoc()));
