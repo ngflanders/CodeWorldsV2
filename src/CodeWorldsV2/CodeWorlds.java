@@ -18,7 +18,7 @@ public class CodeWorlds {
                     || !args[0].equals("D") && !args[0].equals("G") && !args[0].equals("A"))
                 throw new CWSException("Usage: CodeWorlds (A|D|G) [entityFile]");
 
-            if (args[1].equals("A")) {
+            if (args[0].equals("A")) {
                 fact = new AutoWorldFactory();
             } else {
                 fact = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in);
@@ -29,7 +29,7 @@ public class CodeWorlds {
             bounds = world.getBounds();
             System.out.printf("Bounds %s\n", bounds);
 
-            dsp = args[0].equals("G") ?
+            dsp = (args[0].equals("G") || args[0].equals("A")) ?
                     new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
 
             for (Brick brk: world)
