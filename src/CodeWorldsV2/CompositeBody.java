@@ -8,7 +8,17 @@ public class CompositeBody implements Body, Displayable {
 
     ArrayList<Body> children;
 
+    @SuppressWarnings("unchecked")
     public CompositeBody(ArrayList bodies) {
+//        for (Object o : bodies) {
+//            if (!(o instanceof Body))
+//                try {
+//                    throw new CWSException("Bad Array");
+//                } catch (CWSException e) {
+//                    e.printStackTrace();
+//                }
+//        }
+
         children = bodies;
     }
 
@@ -19,16 +29,17 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Rectangle getBounds() {
-
-        int leftMax = 0, rightMax=0, topMax=0, bottomMax=0, temp;
+        int leftMax=0, rightMax=0, topMax=0, bottomMax=0, temp;
+        Rectangle r;
         for (Body b : children) {
-            if ((temp = b.getBounds().getLeft()) < leftMax)
+            r = b.getBounds();
+            if ((temp = r.getLeft()) < leftMax)
                 leftMax = temp;
-            if ((temp = b.getBounds().getRight()) > rightMax)
+            if ((temp = r.getRight()) > rightMax)
                 rightMax = temp;
-            if ((temp = b.getBounds().getTop()) < topMax)
+            if ((temp = r.getTop()) < topMax)
                 topMax = temp;
-            if ((temp = b.getBounds().getBottom()) > bottomMax)
+            if ((temp = r.getBottom()) > bottomMax)
                 bottomMax = temp;
         }
         return new Rectangle(leftMax, topMax, rightMax-leftMax, bottomMax-topMax);
@@ -47,7 +58,7 @@ public class CompositeBody implements Body, Displayable {
     @Override
     public Iterator<Brick> iterator() {
         return new Iterator<Brick>() {
-            int i;
+            int i = -1;
             @Override
             public boolean hasNext() {
                 return i<children.size()-1;
