@@ -58,17 +58,12 @@ public abstract class Brick implements Body, Displayable {
 
     @Override
     public Rectangle getBounds() {
-
-        /**
-         * Questions:
-         * 1.  Is this allowed?
-         * 2.  What should the top and left value be?
-         */
         return new Rectangle(getLoc().getX(),getLoc().getY(),1,1);
     }
 
     @Override
     public Body clone(Vector offset) {
+        // not sure if clone should be implemented in Brick or in the child classes such as Cow
         if (this instanceof Cow) {
             return new Cow(offset);
 
