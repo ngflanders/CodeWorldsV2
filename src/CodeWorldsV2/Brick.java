@@ -46,7 +46,7 @@ public abstract class Brick implements Body, Displayable {
         return new Iterator<Brick>() {
             @Override
             public boolean hasNext() {
-                return false;
+                return true;
             }
             // first return the object then return null
             @Override
@@ -64,6 +64,15 @@ public abstract class Brick implements Body, Displayable {
          * 1.  Is this allowed?
          * 2.  What should the top and left value be?
          */
-        return new Rectangle(1,1,1,1);
+        return new Rectangle(getLoc().getX(),getLoc().getY(),1,1);
+    }
+
+    @Override
+    public Body clone(Vector offset) {
+        if (this instanceof Cow) {
+            return new Cow(offset);
+
+        }
+        return null;
     }
 }
