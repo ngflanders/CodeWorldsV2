@@ -68,7 +68,7 @@ public abstract class Brick implements Body, Displayable {
     @Override
     public Body clone(Vector offset) {
         if (this instanceof Cow) {
-            return new Cow(offset);
+            return new Cow(new Vector(offset.getX() + getLoc().getX(), offset.getY() + getLoc().getY()));
         }
         return null;
     }
