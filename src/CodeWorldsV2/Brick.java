@@ -50,6 +50,9 @@ public abstract class Brick implements Body, Displayable {
             }
             // first return the object then return null
             @Override
+            ////////////////////////////////////////////////////////////////////////
+            // Implement this
+            ////////////////////////////////////////////////////////////////////////
             public Brick next() {
                 return null;
             }
@@ -59,11 +62,6 @@ public abstract class Brick implements Body, Displayable {
     @Override
     public Rectangle getBounds() {
 
-        /**
-         * Questions:
-         * 1.  Is this allowed?
-         * 2.  What should the top and left value be?
-         */
         return new Rectangle(getLoc().getX(),getLoc().getY(),1,1);
     }
 
@@ -71,7 +69,6 @@ public abstract class Brick implements Body, Displayable {
     public Body clone(Vector offset) {
         if (this instanceof Cow) {
             return new Cow(offset);
-
         }
         return null;
     }
