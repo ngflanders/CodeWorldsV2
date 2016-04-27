@@ -7,24 +7,19 @@ import java.util.Iterator;
 public class CompositeBody implements Body, Displayable {
 
     ArrayList<Body> children;
+    Vector loc;
 
-    @SuppressWarnings("unchecked")
-    public CompositeBody(ArrayList bodies) {
-//        for (Object o : bodies) {
-//            if (!(o instanceof Body))
-//                try {
-//                    throw new CWSException("Bad Array");
-//                } catch (CWSException e) {
-//                    e.printStackTrace();
-//                }
-//        }
-
+    public CompositeBody(ArrayList<Body> bodies) {
         children = bodies;
     }
 
     // Copy constructor
     public CompositeBody(CompositeBody other) {
 
+    }
+
+    public CompositeBody(Vector loc) {
+        this.loc = loc;
     }
 
     @Override
@@ -52,7 +47,7 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Body clone(Vector offset) {
-        return new CompositeBody(this); // needs offset still!
+        return new CompositeBody(offset.plus(this.getLoc()));
     }
 
     @Override

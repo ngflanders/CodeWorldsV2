@@ -10,6 +10,7 @@ import java.util.Iterator;
 public abstract class Brick implements Body, Displayable {
 
 
+
     // Create an image of color |bg|, with |fg| dots at random location, with
     // one |fg| dot out of every |skip| dots.
     static public Image makeStippleImage(int size, Color bg, Color fg,
