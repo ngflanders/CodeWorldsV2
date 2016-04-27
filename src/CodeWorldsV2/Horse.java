@@ -59,6 +59,7 @@ public class Horse extends HerdAnimal {
             grp.setColor(spotClr);
             grp.fillOval(3*size/10, 5*size/20, size/40, size/40);
 
+
             // Horn
             grp.setColor(hornClr);
             grp.fillPolygon(
