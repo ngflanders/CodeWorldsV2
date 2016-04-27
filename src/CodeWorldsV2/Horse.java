@@ -24,8 +24,7 @@ public class Horse extends HerdAnimal {
     @Override
     public Image getImage(int size) {
         Graphics2D grp;
-        Color dkBrn = new Color(80, 60, 40);
-        Color bodyClr = new Color(210, 210, 210), hornClr = Color.DARK_GRAY,
+        Color bodyClr = new Color(80, 45, 20), hornClr = Color.DARK_GRAY,
                 hoofClr = new Color(80, 60, 40), spotClr = Color.BLACK;
 
         if (size != imgSize) {
@@ -33,10 +32,9 @@ public class Horse extends HerdAnimal {
             grp = img.createGraphics();
 
             // Body and head
-            grp.setColor(dkBrn);
-            grp.fillRoundRect(4*size/10, 4*size/10, 7*size/10, 5*size/10, size/10,
+            grp.setColor(bodyClr);
+            grp.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/10,
                     size/10);
-
             grp.fillRoundRect(size/10,  2*size/10,  3*size/10,  2*size/10,
                     size/10, size/10);
 
@@ -59,8 +57,6 @@ public class Horse extends HerdAnimal {
 
             // Spots and eye
             grp.setColor(spotClr);
-            grp.fillOval(4*size/10,  4*size/10,  size/10,  size/10);
-            grp.fillOval(6*size/10,  5*size/10,  size/5,  size/8);
             grp.fillOval(3*size/10, 5*size/20, size/40, size/40);
 
             // Horn
