@@ -65,18 +65,18 @@ public abstract class Brick implements Body, Displayable {
         return new Rectangle(getLoc().getX(),getLoc().getY(),1,1);
     }
 
-    @Override
-    public Body clone(Vector offset) {
-        // not sure if clone should be implemented in Brick or in the child classes such as Cow
-        if (this instanceof Cow) {
-            return new Cow(new Vector(offset.getX() + getLoc().getX(), offset.getY() + getLoc().getY()));
-        } else if (this instanceof Tree) {
-            return new Tree(offset);
-        } else if (this instanceof Horse) {
-            return new Horse(offset);
-        } else if (this instanceof Stone) {
-            return new Stone(offset);
-        }
-        return null;
-    }
+//    @Override
+//    public Body clone(Vector offset) {
+//        // not sure if clone should be implemented in Brick or in the child classes such as Cow
+//        if (this instanceof Cow) {
+//            return new Cow(new Vector(offset.getX() + getLoc().getX(), offset.getY() + getLoc().getY()));
+//        } else if (this instanceof Tree) {
+//            return new Tree(offset);
+//        } else if (this instanceof Horse) {
+//            return new Horse(offset);
+//        } else if (this instanceof Stone) {
+//            return new Stone(offset);
+//        }
+//        return null;
+//    }
 }

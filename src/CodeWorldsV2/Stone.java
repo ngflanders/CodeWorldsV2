@@ -27,8 +27,8 @@ public class Stone extends Brick {
         return img;
     }
 
-//    @Override
-//    public Body clone(Vector offset) {
-//        return null;
-//    }
+    @Override
+    public Body clone(Vector offset) {
+        return new Stone(offset);
+    }
 }

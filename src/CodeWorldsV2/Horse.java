@@ -86,9 +86,9 @@ public class Horse extends HerdAnimal {
     }
 
     ///////////////////////////////////////
-//    @Override
-//    public Body clone(Vector offset) {
-//        return null;
-//    }
+    @Override
+    public Body clone(Vector offset) {
+        return new Horse(offset);
+    }
     ////////////////////////////////////////
 }
