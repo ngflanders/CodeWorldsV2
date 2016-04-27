@@ -29,6 +29,14 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Rectangle getBounds() {
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        /**
+         *  Implement UnionBy
+         *  HERE
+         *
+         */
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
         int leftMax=0, rightMax=0, topMax=0, bottomMax=0, temp;
         Rectangle r;
         for (Body b : children) {
