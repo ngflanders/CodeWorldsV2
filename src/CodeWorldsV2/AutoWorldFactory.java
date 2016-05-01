@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AutoWorldFactory implements WorldFactory {
-
     ArrayList<Body> bodies;
 
-    public AutoWorldFactory() {
-        bodies = new ArrayList<>();
-    }
+    public AutoWorldFactory() { bodies = new ArrayList<>(); }
 
     @Override
     public WorldFactory build() throws CWSException {
@@ -32,7 +29,6 @@ public class AutoWorldFactory implements WorldFactory {
             bodies.add(b = new Horse(new Vector(random.nextInt(10), random.nextInt(6))));
             System.out.println("Horse " + b.getBounds());
         }
-
         return this;
     }
 

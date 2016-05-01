@@ -9,6 +9,7 @@ import java.util.Iterator;
 // Fundamental unit of display.  A Brick is one cell in the display.
 public abstract class Brick implements Body, Displayable {
 
+    Brick a = this;
 
     // Create an image of color |bg|, with |fg| dots at random location, with
     // one |fg| dot out of every |skip| dots.
@@ -42,19 +43,19 @@ public abstract class Brick implements Body, Displayable {
 
     @Override
     public Iterator<Brick> iterator() {
-        // first return true, then return false
         return new Iterator<Brick>() {
+            boolean b = true;
             @Override
             public boolean hasNext() {
-                return true;
+                return b;
             }
-            // first return the object then return null
+
             @Override
-            ////////////////////////////////////////////////////////////////////////
-            // Implement this
-            ////////////////////////////////////////////////////////////////////////
             public Brick next() {
-                return null;
+                Brick temp;
+                temp =  b ? a : null;
+                b = false;
+                return temp;
             }
         };
     }
@@ -64,18 +65,18 @@ public abstract class Brick implements Body, Displayable {
         return new Rectangle(getLoc().getX(),getLoc().getY(),1,1);
     }
 
-    @Override
-    public Body clone(Vector offset) {
-        // not sure if clone should be implemented in Brick or in the child classes such as Cow
-        if (this instanceof Cow) {
-            return new Cow(new Vector(offset.getX() + getLoc().getX(), offset.getY() + getLoc().getY()));
-        }
-        if (this instanceof Tree) {
-            return new Tree(offset);
-        }
-        if (this instanceof Horse) {
-            return new Horse(offset);
-        }
-        return null;
-    }
+//    @Override
+//    public Body clone(Vector offset) {
+//        // not sure if clone should be implemented in Brick or in the child classes such as Cow
+//        if (this instanceof Cow) {
+//            return new Cow(new Vector(offset.getX() + getLoc().getX(), offset.getY() + getLoc().getY()));
+//        } else if (this instanceof Tree) {
+//            return new Tree(offset);
+//        } else if (this instanceof Horse) {
+//            return new Horse(offset);
+//        } else if (this instanceof Stone) {
+//            return new Stone(offset);
+//        }
+//        return null;
+//    }
 }

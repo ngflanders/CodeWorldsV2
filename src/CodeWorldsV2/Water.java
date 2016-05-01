@@ -30,7 +30,7 @@ public class Water extends Brick {
     /////////////////////////////////////
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Water(offset);
     }
     ///////////////////////////////////////
 }

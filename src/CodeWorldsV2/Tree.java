@@ -50,9 +50,9 @@ public class Tree extends Brick {
     }
 
     ///////////////////////////////////////////
-//    @Override
-//    public Body clone(Vector offset) {
-//        return null;
-//    }
+    @Override
+    public Body clone(Vector offset) {
+        return new Tree(offset);
+    }
     ///////////////////////////////////////////
 }

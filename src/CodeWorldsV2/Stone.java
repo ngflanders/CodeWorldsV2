@@ -29,6 +29,6 @@ public class Stone extends Brick {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Stone(offset);
     }
 }
