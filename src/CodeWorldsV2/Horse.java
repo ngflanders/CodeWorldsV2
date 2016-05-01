@@ -41,6 +41,7 @@ public class Horse extends HerdAnimal {
                     new int[] {5*size/20, 8*size/20, 9*size/20},
                     new int[] {4*size/20, 4*size/20, 3*size/20}, 3);
 
+
             // Legs
             grp.fillPolygon(
                     new int[] {size*4/10, size*5/10, size*4/10, size*5/20},
