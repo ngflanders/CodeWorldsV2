@@ -43,7 +43,6 @@ public class Horse extends HerdAnimal {
 
 
             // Legs
-
             grp.fillPolygon(
                     new int[] {size*4/10, size*5/10, size*4/10, size*5/20},
                     new int[] {size/2, size/2, size*17/20, size*17/20}, 4);
