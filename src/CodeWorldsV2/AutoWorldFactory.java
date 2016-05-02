@@ -18,6 +18,7 @@ public class AutoWorldFactory implements WorldFactory {
             System.out.println("Cow   " + b.getBounds());
         }
 
+
         // Random Number of Trees
         for (int i = 0; i < random.nextInt(4); i++) {
             bodies.add(b = new Tree(new Vector(random.nextInt(10), random.nextInt(6))));
