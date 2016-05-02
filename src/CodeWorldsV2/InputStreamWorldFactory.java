@@ -73,6 +73,14 @@ public class InputStreamWorldFactory implements WorldFactory {
                             bodies.add(modelTable.get("Stone").clone(new Vector(x, y)));
                         }
                         break;
+                    case "Sloth":
+                        if (!modelTable.containsKey("Sloth")) {
+                            bodies.add(b = (new Sloth(new Vector(x, y))));
+                            modelTable.put("Sloth", b);
+                        } else {
+                            bodies.add(modelTable.get("Sloth").clone(new Vector(x, y)));
+                        }
+                        break;
 
                     default:
                         if (modelTable.containsKey(lineItems[0])) {
