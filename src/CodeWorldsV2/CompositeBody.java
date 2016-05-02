@@ -33,6 +33,7 @@ public class CompositeBody implements Body, Displayable {
 
     }
 
+
     @Override
     public Rectangle getBounds() {
 
