@@ -85,6 +85,7 @@ public class CompositeBody implements Body, Displayable {
         };
     }
 
+
     @Override
     public Vector getLoc() {
         return loc;
