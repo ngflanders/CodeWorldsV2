@@ -59,10 +59,13 @@ public class CompositeBody implements Body, Displayable {
 
             @Override
             public Brick next() {
-                if(children.get(i+1) instanceof Brick)
-                return ((Brick) children.get(++i));
-                if(children.get(i+1) instanceof CompositeBody)
-
+                if(children.get(i+1) instanceof Brick) {
+                    return ((Brick) children.get(++i));
+                }
+                if(children.get(i+1) instanceof CompositeBody) {
+                    return ((Brick) ((CompositeBody) children.get(i + 1)).children.get(++j));
+                }
+                return null;
             }
         };
     }
