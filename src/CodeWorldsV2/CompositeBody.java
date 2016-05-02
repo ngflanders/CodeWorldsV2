@@ -87,7 +87,6 @@ public class CompositeBody implements Body, Displayable {
                 return null;
             }
         };
-
     }
 
     @Override
