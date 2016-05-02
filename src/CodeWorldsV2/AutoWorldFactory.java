@@ -19,6 +19,8 @@ public class AutoWorldFactory implements WorldFactory {
         Vector v;
 
         River();
+        Forest();
+
         // Random Number of Cows
         for (int i = 0; i < random.nextInt(100); i++) {
             v = generatorLoc(30, 20);
@@ -29,22 +31,27 @@ public class AutoWorldFactory implements WorldFactory {
             v = generatorLoc(30, 20);
             bodies.add(new Tree(v));
         }
-        // Random Number of Horse
+        // Random Number of Horses
         for (int i = 0; i < random.nextInt(100); i++) {
             v = generatorLoc(30, 20);
             bodies.add(new Horse(v));
         }
         // Random Number of Water
+//        for (int i = 0; i < random.nextInt(150); i++) {
+//            v = generatorLoc(30, 20);
+//            bodies.add(new Water(v));
+//        }
+        // Random Number of Stones
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(new Water(v));
+            bodies.add(new Stone(v));
         }
-        // Random Number of Ore
+        // Random Number of Ores
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
             bodies.add(new Ore(v));
         }
-        // Random Number of Sloth
+        // Random Number of Sloths
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
             bodies.add(new Sloth(v));
@@ -110,7 +117,44 @@ public class AutoWorldFactory implements WorldFactory {
             usedSpace.add(v);
         }
     }
+    /*
+    Desc: Adds a 3*3 forest on a random position.
+    Pre:  none
+    Post: A 3*3 forest is formed
+    */
+    public void Forest(){
+        Vector v = null;
+        Random random = new Random();
+        int i = random.nextInt(30);
+        int j = random.nextInt(20);
 
+        //Make a 3*3 forest
+        if(i+3<30 && j+3<20){
+            //Make 3 trees along the y-positive axis
+            for(int x = 2; x > 0; x--) {
+                bodies.add(new Tree(v = new Vector(i, j++)));
+                usedSpace.add(v);
+            }
+            //Make 3 trees along the x-positive axis
+            for(int x = 2; x > 0; x--) {
+                bodies.add(new Tree(v = new Vector(i++, j)));
+                usedSpace.add(v);
+            }
+            //Make 3 trees along the y-negative axis
+            for(int x = 2; x > 0; x--) {
+                bodies.add(new Tree(v = new Vector(i, j--)));
+                usedSpace.add(v);
+            }
+            //Make 3 trees along the x-negative axis
+            for(int x = 2; x > 0; x--) {
+                bodies.add(new Tree(v = new Vector(i--, j)));
+                usedSpace.add(v);
+            }
+            //Insert a tree in the middle of the 3*3 forest
+            bodies.add(new Tree(v = new Vector(i+1, j+1)));
+            usedSpace.add(v);
+        }
+    }
 
 
 
