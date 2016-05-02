@@ -55,27 +55,25 @@ public class CompositeBody implements Body, Displayable {
 
             @Override
             public boolean hasNext() {
-                return i < children.size() - 1;
+                return i < children.size();
             }
 
             @Override
             public Brick next() {
-                boolean isInner = false;
                 if(children.get(i) instanceof Brick) {
                     return ((Brick) children.get(i++));
                 }
                 if(children.get(i) instanceof CompositeBody) {
-                    isInner = true;
                     if (j < ((CompositeBody) children.get(i)).children.size())
                         return ((Brick) ((CompositeBody) children.get(i)).children.get(j++));
                     else {
-                        isInner = false;
-                        i++;
-                        return null;
+                        if (children.size() > i+1) {
+                            i++;
+                            return next();
+                        }
                     }
                 }
-                return null;
-            }
+            return null;}
         };
     }
 

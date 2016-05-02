@@ -32,7 +32,10 @@ public class CodeWorlds {
                     new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
 
             for (Brick brk: world)
+            try{
                 dsp.addDisplayable(brk);
+            } catch(NullPointerException e){}
+
 
             dsp.redraw(0);
         }
