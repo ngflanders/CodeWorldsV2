@@ -42,19 +42,37 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Iterator<Brick> iterator() {
-        return new Iterator<Brick>() {
-            int i = -1;
-            @Override
-            public boolean hasNext() {
-                return i < children.size()-1;
-            }
+        int x = -1;
+        if (children.get(++x) instanceof Brick) {
+            return new Iterator<Brick>() {
+                int i = -1;
 
-            @Override
-            public Brick next() {
-                i++;
-                return ((Brick) children.get(i));
-            }
-        };
+                @Override
+                public boolean hasNext() {
+                    return i < children.size() - 1;
+                }
+
+                @Override
+                public Brick next() {
+                    return ((Brick) children.get(++i));
+                }
+            };
+        } else {
+            return new Iterator<Brick>() {
+                int i = -1;
+
+                @Override
+                public boolean hasNext() {
+                    return i < children.size() - 1;
+                }
+
+                @Override
+                public Brick next() {
+                    CompositeBody cmp = (CompositeBody) children.get(++i);
+                    return (Brick)cmp.children.get(++i);
+                }
+            };
+        }
     }
 
     @Override
