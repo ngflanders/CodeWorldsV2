@@ -30,7 +30,7 @@ public class CompositeBody implements Body, Displayable {
     }
 
     /*
-    Desc: returns a Rectangle of the furthestmost bounds of all of the children objects
+    Desc: returns a Rectangle of the furthest bounds of all of the children objects
     Pre:  the children data member has already been filled
     Post: a Rectangle has been returned whose bounds enclose all of the children Bodies
     */
