@@ -18,7 +18,13 @@ public class CompositeBody implements Body, Displayable {
 
     }
 
+
     public CompositeBody(Vector loc) {
+        this.loc = loc;
+    }
+
+    public CompositeBody(ArrayList<Body> children, Vector loc) {
+        this.children = children;
         this.loc = loc;
     }
 
@@ -37,7 +43,8 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Body clone(Vector offset) {
-        return new CompositeBody(offset.plus(this.getLoc()));
+        //return new CompositeBody(offset.plus(this.getLoc()));
+        return new CompositeBody(children, offset);
     }
 
     @Override
@@ -77,7 +84,7 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Vector getLoc() {
-        return null;
+        return loc;
     }
 
     @Override

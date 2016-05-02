@@ -1,12 +1,8 @@
-Cow 4 1
-Cow 5 7
-Cow 4 5
-Cow 8 7
-Horse 2 3
-Horse 12 8
-Horse 2 5
-Tree 3 3
-Stone 1 1
-Sloth 3 6
-Tree 6 7
-Sloth 10 10
+( Stand
+   Tree 0 0
+   Tree 1 2
+   Tree 3 3
+   Tree 1 3
+)
+
+Stand 5 5
