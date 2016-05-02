@@ -24,6 +24,7 @@ public class CompositeBody implements Body, Displayable {
     }
 
     public CompositeBody(ArrayList<Body> childre, Vector loc) {
+        children = new ArrayList<>();
         for (Body b : childre) {
             this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
         }
