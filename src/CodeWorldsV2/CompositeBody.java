@@ -26,10 +26,13 @@ public class CompositeBody implements Body, Displayable {
     public CompositeBody(ArrayList<Body> childre, Vector loc) {
         children = new ArrayList<>();
         for (Body b : childre) {
-            this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
+            if (b instanceof Brick)
+                this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
+            else
+                this.children.add(b.clone(loc.plus(((CompositeBody) b).getLoc())));
         }
 
-       // this.children = children;
+        // this.children = children;
         this.loc = loc;
 
     }
@@ -74,13 +77,15 @@ public class CompositeBody implements Body, Displayable {
                     if (j < ((CompositeBody) children.get(i)).children.size())
                         return ((Brick) ((CompositeBody) children.get(i)).children.get(j++));
                     else {
+                        j = 0;
                         if (children.size() > i+1) {
                             i++;
                             return next();
                         }
                     }
                 }
-            return null;}
+                return null;
+            }
         };
 
     }
