@@ -52,6 +52,7 @@ public class CompositeBody implements Body, Displayable {
         return new Iterator<Brick>() {
             int i = -1;
             int j = -1;
+            boolean isDeep = false;
             @Override
             public boolean hasNext() {
                 return i < children.size() - 1;
@@ -63,7 +64,7 @@ public class CompositeBody implements Body, Displayable {
                     return ((Brick) children.get(++i));
                 }
                 if(children.get(i+1) instanceof CompositeBody) {
-                    return ((Brick) ((CompositeBody) children.get(i + 1)).children.get(++j));
+                    return ((Brick) ((CompositeBody) children.get(i+1)).children.get(++j));
                 }
                 return null;
             }
