@@ -12,6 +12,32 @@
    Stone 0 1
 )
 
-Stand 3 3
+( Mine
+  Ore 2 0
+  Ore 2 1
+  Ore 1 2
+)
 
+( Pond
+   Water 0 0
+   Water 0 1
+   Water 1 0
+   Water 1 1
+   Water 0 2
+   Water 1 2
+   Water 2 0
+   Water 2 1
+)
+
+( Herd
+   Cow 0 0
+   Horse 0 1
+   Cow 1 1
+   Horse 1 0
+)
+
+Stand 4 3
+Pond 0 0
 Boulder 7 4
+Mine 1 6
+Herd 10 7

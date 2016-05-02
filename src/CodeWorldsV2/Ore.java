@@ -30,7 +30,7 @@ public class Ore extends Brick {
     //////////////////////////////////////////
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Ore(offset);
     }
     /////////////////////////////////////////////
 }
