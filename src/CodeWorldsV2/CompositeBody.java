@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class CompositeBody implements Body, Displayable {
 
-    public ArrayList<Body> children;
+    ArrayList<Body> children;
     Vector loc;
 
     public CompositeBody(ArrayList<Body> bodies) {
@@ -23,9 +23,6 @@ public class CompositeBody implements Body, Displayable {
         this.loc = loc;
     }
 
-    public ArrayList<Body> getChildren(){
-        return children;
-    }
     public CompositeBody(ArrayList<Body> children, Vector loc) {
         this.children = children;
         this.loc = loc;
@@ -54,6 +51,7 @@ public class CompositeBody implements Body, Displayable {
     public Iterator<Brick> iterator() {
         return new Iterator<Brick>() {
             int i = -1;
+            int j = -1;
             @Override
             public boolean hasNext() {
                 return i < children.size() - 1;
@@ -61,9 +59,13 @@ public class CompositeBody implements Body, Displayable {
 
             @Override
             public Brick next() {
-                if(children.get(i+1) instanceof Brick)
+                if(children.get(i+1) instanceof Brick) {
                     return ((Brick) children.get(++i));
-                if(children.get(i+1) instanceof CompositeBody){}
+                }
+                if(children.get(i+1) instanceof CompositeBody) {
+                    return ((Brick) ((CompositeBody) children.get(i + 1)).children.get(++j));
+                }
+                return null;
             }
         };
     }
