@@ -114,9 +114,6 @@ public class InputStreamWorldFactory implements WorldFactory {
 
             default:
                 if (modelTable.containsKey(lineItems[0])) {
-//                    arrayList.add(new CompositeBody((modelTable.get(lineItems[0])).clone(new Vector(x,y))));
-//                    arrayList.add(new CompositeBody(modelTable.get(lineItems[0]).clone(new Vector(x,y))));
-//                    arrayList.add( modelTable.get(lineItems[0]).clone(((CompositeBody) modelTable.get(lineItems[0])).children, new Vector(x,y)));
                     arrayList.add(modelTable.get(lineItems[0]).clone(new Vector(x,y)));
                 } else {
                     addPattern(line, reader );

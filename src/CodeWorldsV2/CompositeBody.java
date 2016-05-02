@@ -24,8 +24,13 @@ public class CompositeBody implements Body, Displayable {
     }
 
     public CompositeBody(ArrayList<Body> children, Vector loc) {
+//        for (Body b : children) {
+//            this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
+//        }
+
         this.children = children;
         this.loc = loc;
+
     }
 
     @Override
@@ -71,7 +76,7 @@ public class CompositeBody implements Body, Displayable {
                     else {
                         isInner = false;
                         i++;
-                        return null;
+                        return next();
                     }
                 }
                 return null;
