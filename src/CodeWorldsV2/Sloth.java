@@ -67,7 +67,7 @@ public class Sloth extends Animal {
     /////////////////////////////////////////////
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Sloth(offset);
     }
     ///////////////////////////////////////////
 }
