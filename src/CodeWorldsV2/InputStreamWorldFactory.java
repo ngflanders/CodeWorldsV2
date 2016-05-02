@@ -74,6 +74,12 @@ public class InputStreamWorldFactory implements WorldFactory {
                         }
                         break;
 
+                    default:
+                        if (modelTable.containsKey(lineItems[0])) {
+                            bodies.add(modelTable.get(lineItems[0]).clone(new Vector(x, y)));
+                        } else {
+                            // TODO add new composite body to the model table ???
+                        }
                 }
             }
             reader.close();
