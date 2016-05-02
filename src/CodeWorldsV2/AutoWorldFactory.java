@@ -17,9 +17,11 @@ public class AutoWorldFactory implements WorldFactory {
     public WorldFactory build() throws CWSException {
         Random random = new Random();
         Vector v;
+
+        River();
         // Random Number of Cows
         for (int i = 0; i < random.nextInt(100); i++) {
-            v = generatorLoc(30, 10);
+            v = generatorLoc(30, 20);
             bodies.add(new Cow(v));
         }
         // Random Number of Trees
@@ -78,4 +80,63 @@ public class AutoWorldFactory implements WorldFactory {
     public Body getWorld() {
         return new CompositeBody(bodies);
     }
+
+    /*
+    Desc: Adds a river on random.  The river can also make a meander.
+    Pre:  Nothing has been created
+    Post: A river is formed
+    */
+    public void River(){
+        Vector v = null;
+        Random random = new Random();
+        int x = 0, y = 0;
+
+        while(x<30 && y<20){
+            int i = random.nextInt(10);
+
+            //Adds a body of water that goes up (making meanders possible)
+            if(i >= 7 && y > 1){
+                bodies.add(new Water(v = new Vector(x, y--)));
+            }
+            //Adds a body of water that goes horizontally
+            else if(i <= 3) {
+                bodies.add(new Water(v = new Vector(x++, y)));
+            }
+            //Adds a body of water that goes down (y-positive)
+            else{
+                bodies.add(new Water(v = new Vector(x, y++)));
+            }
+
+            usedSpace.add(v);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
