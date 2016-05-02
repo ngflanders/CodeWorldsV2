@@ -31,8 +31,32 @@ public class Sloth extends Animal {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
             grp = img.createGraphics();
 
-            grp.setColor(Color.DARK_GRAY);
-            grp.fillOval(3*size/10, 3*size/10, size/5, size/5);
+            Color bodyClr = new Color(100, 79, 43), hornClr = Color.DARK_GRAY,
+                    WhiteSpot = new Color(255, 255, 255), spotClr = Color.BLACK;
+
+            //Body and Head
+            grp.setColor(bodyClr);
+            grp.fillOval(5*size/10,  7*size/10,  size/2,  size/3);      //Body
+            grp.fillOval(7*size/20,  8*size/10,  size/4,  size/4);      //Head
+
+            //Claws
+            grp.setColor(spotClr);
+            grp.fillPolygon(
+                    new int[] {14*size/20, 14*size/20, 10*size/20},
+                    new int[] {18*size/20, size, size}, 3);
+            grp.fillPolygon(
+                    new int[] {19*size/20, 19*size/20, 15*size/20},
+                    new int[] {18*size/20, size, size}, 3);
+
+            //White Spot
+            grp.setColor(WhiteSpot);
+            grp.fillPolygon(
+                    new int[] {11*size/30, 11*size/30, 11*size/20},
+                    new int[] {17*size/20, 28*size/30, 18*size/20}, 3);
+
+            // eye
+            grp.setColor(spotClr);
+            grp.fillOval(7*size/20,  25*size/30,  size/12,  size/12);
 
             grp.dispose();
         }

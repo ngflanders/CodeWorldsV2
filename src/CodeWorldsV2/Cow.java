@@ -66,7 +66,6 @@ public class Cow extends HerdAnimal {
                     new int[] {3*size/10, 7*size/20, 5*size/20},
                     new int[] {2*size/10, 2*size/10, size/10}, 3);
 
-            Color greenish = new Color(230, 255, 230);
             grp.fillOval(10,  20, 5, 5);
 
             grp.dispose();
