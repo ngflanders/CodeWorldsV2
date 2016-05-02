@@ -24,30 +24,16 @@ public class CompositeBody implements Body, Displayable {
 
     @Override
     public Rectangle getBounds() {
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        /**
-         *  TODO Implement UnionBy
-         *
-         *
-         */
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        int leftMax=0, rightMax=0, topMax=0, bottomMax=0, temp;
-        Rectangle r;
-        for (Body b : children) {
-            r = b.getBounds();
-            if ((temp = r.getLeft()) < leftMax)
-                leftMax = temp;
-            if ((temp = r.getRight()) > rightMax)
-                rightMax = temp;
-            if ((temp = r.getTop()) < topMax)
-                topMax = temp;
-            if ((temp = r.getBottom()) > bottomMax)
-                bottomMax = temp;
+        int leftMax = 0, rightMax = 0, topMax = 0, bottomMax = 0, temp;
+        Rectangle r = children.get(0).getBounds();
+        Rectangle s;
+        for (int i = 0; i < children.size() - 1; i++) {
+            s = children.get(i+1).getBounds();
+            r.unionBy(s);
         }
-        return new Rectangle(leftMax, topMax, rightMax-leftMax, bottomMax-topMax);
+        return r;
     }
-
 
     @Override
     public Body clone(Vector offset) {
