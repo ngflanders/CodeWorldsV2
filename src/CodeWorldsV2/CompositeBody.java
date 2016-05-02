@@ -84,7 +84,7 @@ public class CompositeBody implements Body, Displayable {
                     if (j < ((CompositeBody) children.get(i)).children.size())
                         return ((Brick) ((CompositeBody) children.get(i)).children.get(j++));
                     else {
-                        // once all of the inner Bricks of the Composite have been retrieve, reset j, and increment i
+                        // once all of the inner Bricks of the Composite have been retrieved, reset j, and increment i
                         j = 0;
                         if (children.size() > i+1) {
                             i++;
