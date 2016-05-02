@@ -77,7 +77,7 @@ public class CompositeBody implements Body, Displayable {
                         if (children.size() > i+1) {
                             i++;
                             return next();
-                        }
+                        } j = 0;
                     }
                 }
             return null;}
