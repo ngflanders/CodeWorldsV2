@@ -23,12 +23,12 @@ public class CompositeBody implements Body, Displayable {
         this.loc = loc;
     }
 
-    public CompositeBody(ArrayList<Body> children, Vector loc) {
-//        for (Body b : children) {
-//            this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
-//        }
+    public CompositeBody(ArrayList<Body> childre, Vector loc) {
+        for (Body b : childre) {
+            this.children.add(b.clone(loc.plus(((Brick) b).getLoc())));
+        }
 
-        this.children = children;
+       // this.children = children;
         this.loc = loc;
 
     }
