@@ -50,8 +50,9 @@ public class CompositeBody implements Body, Displayable {
     @Override
     public Iterator<Brick> iterator() {
         return new Iterator<Brick>() {
-            int i = -1;
-            int j = -1;
+            int i = 0;
+            int j = 0;
+
             @Override
             public boolean hasNext() {
                 return i < children.size() - 1;
@@ -59,11 +60,19 @@ public class CompositeBody implements Body, Displayable {
 
             @Override
             public Brick next() {
-                if(children.get(i+1) instanceof Brick) {
-                    return ((Brick) children.get(++i));
+                boolean isInner = false;
+                if(children.get(i) instanceof Brick) {
+                    return ((Brick) children.get(i++));
                 }
-                if(children.get(i+1) instanceof CompositeBody) {
-                    return ((Brick) ((CompositeBody) children.get(i + 1)).children.get(++j));
+                if(children.get(i) instanceof CompositeBody) {
+                    isInner = true;
+                    if (j < ((CompositeBody) children.get(i)).children.size())
+                        return ((Brick) ((CompositeBody) children.get(i)).children.get(j++));
+                    else {
+                        isInner = false;
+                        i++;
+                        return null;
+                    }
                 }
                 return null;
             }
