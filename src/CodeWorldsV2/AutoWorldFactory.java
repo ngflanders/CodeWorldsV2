@@ -16,43 +16,36 @@ public class AutoWorldFactory implements WorldFactory {
     @Override
     public WorldFactory build() throws CWSException {
         Random random = new Random();
-        Body b;
         Vector v;
         // Random Number of Cows
         for (int i = 0; i < random.nextInt(100); i++) {
             v = generatorLoc(30, 10);
-            bodies.add(b = new Cow(v));
-            System.out.println("Cow   " + b.getBounds());
+            bodies.add(new Cow(v));
         }
         // Random Number of Trees
         for (int i = 0; i < random.nextInt(200); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(b = new Tree(v));
-            System.out.println("Cow   " + b.getBounds());
+            bodies.add(new Tree(v));
         }
         // Random Number of Horse
         for (int i = 0; i < random.nextInt(100); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(b = new Horse(v));
-            System.out.println("Cow   " + b.getBounds());
+            bodies.add(new Horse(v));
         }
         // Random Number of Water
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(b = new Water(v));
-            System.out.println("Cow   " + b.getBounds());
+            bodies.add(new Water(v));
         }
         // Random Number of Ore
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(b = new Ore(v));
-            System.out.println("Ore   " + b.getBounds());
+            bodies.add(new Ore(v));
         }
         // Random Number of Sloth
         for (int i = 0; i < random.nextInt(150); i++) {
             v = generatorLoc(30, 20);
-            bodies.add(b = new Sloth(v));
-            System.out.println("Sloth   " + b.getBounds());
+            bodies.add(new Sloth(v));
         }
         return this;
     }
